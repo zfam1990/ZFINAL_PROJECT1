@@ -1,0 +1,21 @@
+projection;
+use draft;
+
+define behavior for ZC_ORDER_D alias Order
+{
+  use create;
+  use update;
+  use delete;
+
+  use association _Item { create; with draft; }
+}
+
+define behavior for ZC_ORDER_ITEM_D alias Order_Item
+{
+  use update;
+  use delete;
+
+  use action CloseItem;
+
+  use association _Order { with draft; }
+}

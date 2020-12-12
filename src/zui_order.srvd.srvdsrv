@@ -1,0 +1,9 @@
+@EndUserText.label: 'Order - Service Definition'
+define service ZUI_ORDER {
+  expose ZC_ORDER;
+  expose ZC_ORDER_ITEM;
+  expose ZI_CUSTOM_LEGAL;
+  expose ZI_SUPPLIER;
+  expose ZI_DEVICE;
+  expose ZI_CUSTOM_PRIVATE;
+}

@@ -1,0 +1,23 @@
+projection;
+
+
+define behavior for ZC_ORDER //alias <alias_name>
+use etag
+
+{
+  use create;
+  use update;
+  use delete;
+
+  use association _Item { create;}
+}
+
+define behavior for ZC_ORDER_ITEM //alias <alias_name>
+use etag
+{
+  use update;
+  use delete;
+
+  use action CloseItem;
+  use association _Order;
+}

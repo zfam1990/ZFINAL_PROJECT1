@@ -1,0 +1,9 @@
+@EndUserText.label: 'Draft'
+define service ZUI_ORDER_D {
+  expose ZC_ORDER_D;
+  expose ZC_ORDER_ITEM_D;
+  expose ZI_CUSTOM_LEGAL;
+  expose ZI_SUPPLIER;
+  expose ZI_DEVICE;
+  expose ZI_CUSTOM_PRIVATE;
+}

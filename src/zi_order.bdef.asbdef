@@ -1,0 +1,93 @@
+managed;
+with draft;
+
+define behavior for ZI_ORDER alias Order
+implementation in class zbp_i_order unique
+persistent table ZORDER
+draft table ZORDER_D
+lock master
+total etag last_changed_at
+//authorization master ( instance )
+etag master local_last_changed_at
+{
+
+ field ( numbering : managed, readonly) order_uuid;
+ field (readonly) order_id;
+ field (readonly) begin_date;
+
+ field ( mandatory ) customer_id_l, delivery_type;
+ field (features : instance ) supplier_id;
+
+
+  create;
+  update;
+  delete;
+  association _Item { create; with draft;}
+
+  mapping for ZORDER corresponding;
+
+ validation MandatoryInitial on save { create; }
+ validation validateCustomer on save { field customer_id_l; }
+ validation validateDeliveryType on save { field delivery_type; }
+ validation validateSupplier on save { field supplier_id; }
+
+  draft determine action Prepare
+  {
+   validation MandatoryInitial;
+ validation validateCustomer;
+ validation validateDeliveryType;
+ validation validateSupplier;
+ validation Item~MandatoryInitial;
+ validation Item~validateCustomer;
+ validation Item~validateDevice;
+ validation Item~validateServiceType;
+ validation Item~validateStatus;
+
+
+ }
+
+determination CalculateOrderKey on modify
+{ create; }
+determination StartDate on modify
+{ create; }
+determination FillSupplier on modify
+{ create; }
+
+}
+
+define behavior for ZI_ORDER_ITEM alias Item
+implementation in class zbp_i_order_item unique
+persistent table ZORDER_ITEM
+draft table ZORDER_ITEM_D
+lock dependent by _Order
+//authorization dependent by <association>
+etag master last_changed_at
+{
+
+field ( numbering : managed, readonly ) item_uuid;
+field (readonly) order_uuid;
+field (readonly) item_id;
+field ( readonly ) end_date;
+field ( mandatory ) customer_id_p, device_imei, service_type, claims;
+field ( features : instance ) status;
+  update;
+  delete;
+
+  mapping for ZORDER_ITEM corresponding;
+
+ validation MandatoryInitial on save { create; }
+ validation validateCustomer on save { field customer_id_p; }
+ validation validateDevice on save { field device_imei; }
+  validation validateServiceType on save { field service_type; }
+   validation validateStatus on save { field status; }
+
+determination CalculateItemKey on modify
+{ create; }
+
+determination SetEndDate on modify
+{field status;}
+
+action ( features : instance ) CloseItem result [1] $self;
+
+   association _Order { with draft;}
+}
