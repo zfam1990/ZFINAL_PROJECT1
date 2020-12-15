@@ -49,7 +49,7 @@ CLASS zcl_calculate_color IMPLEMENTATION.
       DATA(lv_term) = lv_today - <fs_original_data>-BeginDate.
       IF <fs_original_data>-Status <> '0002' AND lv_term > 8.
         <fs_original_data>-color = 1.
-      ELSEIF <fs_original_data>-Status <> '0002' AND lv_term = 0.
+      ELSEIF <fs_original_data>-Status <> '0002' AND lv_term = 1.
         <fs_original_data>-color = 2.
       ELSEIF <fs_original_data>-Status <> '0002' AND lv_term < 5.
         <fs_original_data>-color = 3.

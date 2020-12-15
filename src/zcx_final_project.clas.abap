@@ -1,6 +1,6 @@
 CLASS zcx_final_project DEFINITION
   PUBLIC
-  INHERITING FROM cx_static_check
+  INHERITING FROM cx_sadl_exit
   FINAL
   CREATE PUBLIC .
 
