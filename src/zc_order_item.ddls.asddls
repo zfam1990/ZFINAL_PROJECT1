@@ -55,7 +55,7 @@ define view entity ZC_ORDER_ITEM
       
                      service_type as ServiceType,
                      @UI: {
-          lineItem:       [ { position: 50, criticality: 'color', criticalityRepresentation: #WITHOUT_ICON, label: 'Status [1(Repair)|2(Close)|3(Wait)]', importance: #MEDIUM }, 
+          lineItem:       [ { position: 50, criticality: 'criticality', criticalityRepresentation: #WITHOUT_ICON, label: 'Status [1(Repair)|2(Close)|3(Wait)]', importance: #MEDIUM }, 
                             { type: #FOR_ACTION, dataAction: 'CloseItem', label: 'Give Out Item' } ],
           identification: [ { position: 70, label: 'Status [1(Repair)|2(Close)|3(Wait)]' } ]}
           
@@ -86,10 +86,7 @@ define view entity ZC_ORDER_ITEM
                      _Device.Model,
                      @UI.hidden: true
                      criticality,
-                     @UI.hidden: true
-                     @ObjectModel.virtualElementCalculatedBy: 'ABAP:ZCL_CALCULATE_COLOR'
-                     virtual color: abap.int1,
-                   
+                     
                      
                      /* Associations */
                      //ZI_ORDER_ITEM

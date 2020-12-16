@@ -1,0 +1,4 @@
+@EndUserText.label: 'API for Order'
+define service ZAPI_RAP_ORDER {
+  expose ZC_ORDER as PhoneOrder;
+}

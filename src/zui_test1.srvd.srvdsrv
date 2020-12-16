@@ -1,0 +1,4 @@
+@EndUserText.label: 'd'
+define service ZUI_TEST1 {
+  expose ZCE_TEST_SOAP_ODATA1;
+}
