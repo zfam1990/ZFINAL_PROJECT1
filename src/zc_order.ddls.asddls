@@ -24,7 +24,14 @@ define root view entity ZC_ORDER
                            type:            #LINEITEM_REFERENCE,
                            label:           'Repair item',
                            position:        20,
-                           targetElement:   '_Item'}]
+                           targetElement:   '_Item'},
+                           { id:            'Legal_customer',
+                           purpose:         #STANDARD,
+                           type:            #LINEITEM_REFERENCE,
+                           label:           'Legal customer',
+                           position:        30,
+                           targetElement:   '_Customer_L'}
+]
 
 
 
@@ -38,7 +45,7 @@ define root view entity ZC_ORDER
       @Search.defaultSearchElement: true
       order_id         as OrderId,
       @UI: {
-               lineItem:       [ { position: 20, label: 'Customer', importance: #HIGH } ],
+               lineItem:       [ { position: 20,label: 'Customer', importance: #HIGH } ],
                identification: [ { position: 20, label: 'Customer' } ],
                selectionField: [ { position: 20 } ] }
       @Consumption.valueHelpDefinition: [{ entity : {name: 'ZI_CUSTOM_LEGAL', element: 'customer_id_l'  }}]
@@ -63,7 +70,7 @@ define root view entity ZC_ORDER
       
       @ObjectModel.text.element: ['SupplierName'] ----meaning?
       @Search.defaultSearchElement: true
-      @EndUserText.label: 'Supplier'
+      //@EndUserText.label: 'Supplier'
       @Search.fuzzinessThreshold: 0.7
       supplier_id      as SupplierId,
       _Supplier.Name   as SupplierName,

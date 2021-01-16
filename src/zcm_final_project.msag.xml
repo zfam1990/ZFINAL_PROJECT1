@@ -20,6 +20,36 @@
      <MSGNR>002</MSGNR>
      <TEXT>Such virtual_element_not_known</TEXT>
     </T100>
+    <T100>
+     <SPRSL>E</SPRSL>
+     <ARBGB>ZCM_FINAL_PROJECT</ARBGB>
+     <MSGNR>003</MSGNR>
+     <TEXT>The filter cannot be converted into a ranges table</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>E</SPRSL>
+     <ARBGB>ZCM_FINAL_PROJECT</ARBGB>
+     <MSGNR>004</MSGNR>
+     <TEXT>Creation of read_request was failed</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>E</SPRSL>
+     <ARBGB>ZCM_FINAL_PROJECT</ARBGB>
+     <MSGNR>005</MSGNR>
+     <TEXT>Http connection problems</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>E</SPRSL>
+     <ARBGB>ZCM_FINAL_PROJECT</ARBGB>
+     <MSGNR>006</MSGNR>
+     <TEXT>Remote_access_failed</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>E</SPRSL>
+     <ARBGB>ZCM_FINAL_PROJECT</ARBGB>
+     <MSGNR>007</MSGNR>
+     <TEXT>Client proxy failed</TEXT>
+    </T100>
    </T100>
   </asx:values>
  </asx:abap>

@@ -1,5 +1,5 @@
 @EndUserText.label: 'Custom entity'
-@ObjectModel.query.implementedBy: 'ABAP:ZCO_SOAP_API_SOAP'
+
 define custom entity ZCE_TEST_SOAP_ODATA{
 
   key product_id               : abap.int4;
@@ -25,7 +25,7 @@ define custom entity ZCE_TEST_SOAP_ODATA{
   sell_start_date          : xsddatetime_z;
   sell_end_date            : xsddatetime_z;
   discontinued_date        : xsddatetime_z;
-  rowguid                  : zguid;
+
   modified_date            : xsddatetime_z;
   
 }

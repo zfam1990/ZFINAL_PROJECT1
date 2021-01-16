@@ -1,0 +1,4 @@
+@EndUserText.label: 'Service definition for ZRAP_TRAVEL_E_123'
+define service ZUI_TRAVEL_123 {
+  expose ZCE_ODATA_TEST123;
+}
